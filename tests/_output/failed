@@ -1,0 +1,5 @@
+tests/acceptance/ProductDetailsCest.php:verifyUserCanAbleToSeeThumbnails
+tests/acceptance/ProductDetailsCest.php:verifyUserCanAbleToIncreaseOrDecreaseQuantityBar
+tests/acceptance/ProductDetailsCest.php:verifyLoginPopupByClickingFavoritesButton
+tests/acceptance/SearchResultsCest.php:verifyBasicElementsOnSearchResultsPage
+tests/acceptance/SearchResultsCest.php:verifyUserToSearchForProduct
