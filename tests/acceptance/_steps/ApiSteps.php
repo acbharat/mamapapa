@@ -2,6 +2,8 @@
 
 namespace AcceptanceTester;
 use GuzzleHttp;
+
+
 class ApiSteps extends \AcceptanceTester
 
 {
@@ -14,11 +16,5 @@ class ApiSteps extends \AcceptanceTester
         $search_content = json_decode($response->getBody()->getContents(), true);
         return $search_content;
     }
-
-//    public function verifyResponseHasValidObjects($data)
-//    {
-//        $I = $this;
-//        $I->assert
-//    }
 
 }

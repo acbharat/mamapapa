@@ -11,10 +11,6 @@ class ProductDetailsCest
     {
     }
 
-    /**
-     * @group buy
-     */
-
     public function verifyBasicElementsOnProductDetailsPage(AcceptanceTester $I, $scenario)
     {
         $I = new AcceptanceTester\ProductDetailsSteps($scenario);
@@ -23,7 +19,9 @@ class ProductDetailsCest
         $I->searchForProduct("red");
         $I->seeBasicElementsOnProductDetailsPage();
     }
-
+    /**
+     * @group buy
+     */
     public function verifyUserCanAbleToSeeThumbnails(AcceptanceTester $I, $scenario)
     {
         $I = new AcceptanceTester\ProductDetailsSteps($scenario);

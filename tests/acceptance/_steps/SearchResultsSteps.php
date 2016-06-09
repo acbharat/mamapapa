@@ -69,7 +69,6 @@ class SearchResultsSteps extends \AcceptanceTester
 
     /**
      * Click on the Load more button
-     *
      * @param string $number
      */
     public function clickLoadMoreButton($number)
