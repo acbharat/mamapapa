@@ -52,10 +52,8 @@ class ProductDetailsSteps extends \AcceptanceTester
     public function seeThumbnailsWithProductMoreThanOneImage()
     {
         $I = $this;
-        $I->wait(2);
         $I->seeElement(\ProductDetailsPage::$productThumbnails);
         $I->click(\ProductDetailsPage::$productThumbnails);
-        $I->wait(2);
     }
 
     /**
@@ -65,10 +63,9 @@ class ProductDetailsSteps extends \AcceptanceTester
     public function seeImageChangesUponClickingThumbnails()
     {
         $I = $this;
-        $I->wait(2);
         $I->seeElement(\ProductDetailsPage::$productThumbnails);
         $I->click(\ProductDetailsPage::$productThumbnails);
-        $I->wait(2);
+
     }
 
     /**
@@ -81,7 +78,7 @@ class ProductDetailsSteps extends \AcceptanceTester
         $I->wait(2);
         $I->seeElement(\ProductDetailsPage::$selectQuantityIncrease);
         $I->click(\ProductDetailsPage::$selectQuantityIncrease);
-        $I->wait(2);
+
     }
     /**
      * Check user can able to decrease quantity
@@ -93,7 +90,7 @@ class ProductDetailsSteps extends \AcceptanceTester
         $I->wait(2);
         $I->seeElement(\ProductDetailsPage::$selectQuantityIncrease);
         $I->click(\ProductDetailsPage::$selectQuantityIncrease);
-        $I->wait(2);
+
     }
 
     /**
@@ -103,10 +100,9 @@ class ProductDetailsSteps extends \AcceptanceTester
     public function seeLoginPopupAppearsWhenFavoritesButtonClicked()
     {
         $I = $this;
-        $I->wait(2);
         $I->seeElement(\ProductDetailsPage::$favorites);
         $I->click(\ProductDetailsPage::$favorites);
-        $I->wait(2);
+
     }
 
 }

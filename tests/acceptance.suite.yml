@@ -6,18 +6,18 @@
 
 class_name: AcceptanceTester
 
-#modules:
-#    enabled:
-#        - WebDriver
-#        - Asserts
-#    config:
-#        WebDriver:
-#            url: 'http://qatest.mamasandpapas.ae'
-#            browser: 'chrome'
-#            restart: true
-
 modules:
     enabled:
-        - PhpBrowser:
-            url: http://qatest.mamasandpapas.ae/
-        - \Helper\Acceptance
+        - WebDriver
+        - Asserts
+    config:
+        WebDriver:
+            url: 'http://qatest.mamasandpapas.ae'
+            browser: 'chrome'
+            restart: true
+
+#modules:
+#    enabled:
+#        - PhpBrowser:
+#            url: http://qatest.mamasandpapas.ae/
+#        - \Helper\Acceptance

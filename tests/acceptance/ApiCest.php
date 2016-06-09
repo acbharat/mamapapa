@@ -16,7 +16,7 @@ class ApiCest
     {
         $I = new AcceptanceTester\ApiSteps($scenario);
         $data = $I->getNameAndIdFromEachNode();
-//        $I->verifyResponseHasValidObjects($data);
+        $I->verifyResponseHasValidObjects($data);
 
     }
 }

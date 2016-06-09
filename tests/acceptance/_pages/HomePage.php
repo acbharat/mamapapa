@@ -18,7 +18,7 @@ class HomePage
      * and use it in tests like: Page\Edit::route('/123-post');
      */
 
-    public static $signIn = "#login-button";
+    public static $signIn = ".login-button";
     public static $localeChanger = "#locale-changer";
     public static $findStoreLink = "#find-a-store";
     public static $logo = "#logo";
