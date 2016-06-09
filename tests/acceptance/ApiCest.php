@@ -12,7 +12,11 @@ class ApiCest
     }
 
     // tests
-    public function tryToTest(AcceptanceTester $I)
+    public function verifyCategoriesApiEndpoint(AcceptanceTester $I, $scenario)
     {
+        $I = new AcceptanceTester\ApiSteps($scenario);
+        $data = $I->getNameAndIdFromEachNode();
+//        $I->verifyResponseHasValidObjects($data);
+
     }
 }
