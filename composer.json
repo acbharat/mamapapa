@@ -1,0 +1,27 @@
+{
+    "name": "mamasandpapas/acceptance",
+    "description": "demo - qatest.mp",
+    "license": "@2016",
+    "keywords": [
+        "propertyfinder.ae",
+        "propertyfinder",
+        "ae.portal"
+    ],
+    "homepage": "http://qatest.mamasandpapas.ae/",
+    "minimum-stability": "",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "",
+      "codeception/codeception": "2.1.6",
+      "codeception/robo-paracept": "dev-master",
+
+    },
+
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "git@github.com:acbharat/mamapapa.git"
+      },
+    ]
+}
