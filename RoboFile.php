@@ -4,7 +4,25 @@
  *
  * @see http://robo.li/
  */
-class RoboFile extends \Robo\Tasks
+
+class Robofile extends \Robo\Tasks
 {
-    // define public methods as commands
+    use \Codeception\Task\MergeReports;
+    use \Codeception\Task\SplitTestsByGroups;
+
+    public function parallelSplitTests()
+    {
+
+    }
+
+    public function parallelRun()
+    {
+
+    }
+
+    public function parallelMergeResults()
+    {
+
+    }
+
 }

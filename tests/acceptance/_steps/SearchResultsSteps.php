@@ -15,10 +15,7 @@ class SearchResultsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->seeElement(\SearchResultsPage::$searchField);
-        $I->fillField(\SearchResultsPage::$searchInputField, $value);
-        $I->canSeeInField(\SearchResultsPage::$searchInputField, $value);
-        $I->wait(5);
-        $I->click(\SearchResultsPage::$searchIcon);
+        $I->submitForm('form.quick-search', ['q' => $value]);
         $I->see(\SearchResultsPage::$searchResultsHeader);
     }
 
@@ -76,6 +73,7 @@ class SearchResultsSteps extends \AcceptanceTester
         $I = $this;
         $I->wait(5);
         $I->click(\SearchResultsPage::$loadMore);
+        $I->verifyNoOfListings();
     }
 
     /**

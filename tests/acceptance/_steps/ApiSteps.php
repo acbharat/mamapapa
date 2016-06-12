@@ -17,4 +17,21 @@ class ApiSteps extends \AcceptanceTester
         return $search_content;
     }
 
+    public function verifyResponseHasValidObjects()
+    {
+        $client = new GuzzleHttp\Client();
+        $url = "http://apitest.mamasandpapas.ae/categories";
+        $response = $client->get($url);
+        $this->assertEquals(200, $response->getStatusCode());
+
+        $search_content = json_decode($response->getBody()->getContents(), true);
+        $this->assertGreaterThan(10, count($search_content['children_data']));
+
+        foreach ($search_content['children_data'] as $node) {
+            $this->assertArrayHasKey('id', $node);
+            $this->assertArrayHasKey('name', $node);
+        }
+
+    }
+
 }
