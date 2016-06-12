@@ -27,7 +27,7 @@ class HomePage
     public static $categoryNavigation = "/html/body/div[1]/nav";
     public static $search = "/html/body/div[1]/form/div[1]";
 
-    public static $modalContent = "//*[@id='login-modal']/div/div/div";
+    public static $modalContent = ".modal-content";
     public static $facebookConnect = "//*[@id='login-modal']/div/div/div/div[3]/div/span[3]/a";
 
     public static function route($param)

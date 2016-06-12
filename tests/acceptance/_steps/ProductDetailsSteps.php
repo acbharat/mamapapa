@@ -74,41 +74,17 @@ class ProductDetailsSteps extends \AcceptanceTester
     }
 
     /**
-     * Check user can able to increase quantity
-     *
-     */
-    public function seeUserIncreasesQuantity()
-    {
-        $I = $this;
-        $I->wait(2);
-        $I->seeElement(\ProductDetailsPage::$selectQuantityIncrease);
-        $I->click(\ProductDetailsPage::$selectQuantityIncrease);
-
-    }
-    /**
-     * Check user can able to decrease quantity
-     * @group bx
-     */
-    public function seeUserDecreaseQuantity()
-    {
-        $I = $this;
-        $I->wait(2);
-        $I->seeElement(\ProductDetailsPage::$selectQuantityIncrease);
-        $I->click(\ProductDetailsPage::$selectQuantityIncrease);
-        $I->seeElement('name=["quantity"]');
-
-    }
-
-    /**
      * Check user can able to see login popup
      *
      */
+
     public function seeLoginPopupAppearsWhenFavoritesButtonClicked()
     {
         $I = $this;
         $I->seeElement(\ProductDetailsPage::$favorites);
         $I->click(\ProductDetailsPage::$favorites);
-
+        $I->waitForElementVisible(\HomePage::$modalContent);
+        $I->see('Sign in');
     }
 
 }
