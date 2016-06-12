@@ -17,7 +17,7 @@ class ProductDetailsSteps extends \AcceptanceTester
         $I->seeElement(\SearchResultsPage::$searchField);
         $I->fillField(\SearchResultsPage::$searchInputField, $value);
         $I->canSeeInField(\SearchResultsPage::$searchInputField, $value);
-        $I->wait(2);
+        $I->wait(5);
         $I->click(\SearchResultsPage::$searchDropDownValue);
     }
 
@@ -66,6 +66,11 @@ class ProductDetailsSteps extends \AcceptanceTester
         $I->seeElement(\ProductDetailsPage::$productThumbnails);
         $I->click(\ProductDetailsPage::$productThumbnails);
 
+        $current = $I->grabAttributeFrom('.thumbnail-container figure.active a', 'href');
+        $I->click('.thumbnail-container figure:nth-child(2) a');
+        $new = $I->grabAttributeFrom('.thumbnail-container figure:nth-child(2) a', 'href');
+
+        $this->assertNotEquals($current, $new);
     }
 
     /**
@@ -82,7 +87,7 @@ class ProductDetailsSteps extends \AcceptanceTester
     }
     /**
      * Check user can able to decrease quantity
-     *
+     * @group bx
      */
     public function seeUserDecreaseQuantity()
     {
@@ -90,6 +95,7 @@ class ProductDetailsSteps extends \AcceptanceTester
         $I->wait(2);
         $I->seeElement(\ProductDetailsPage::$selectQuantityIncrease);
         $I->click(\ProductDetailsPage::$selectQuantityIncrease);
+        $I->seeElement('name=["quantity"]');
 
     }
 

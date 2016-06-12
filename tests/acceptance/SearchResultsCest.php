@@ -19,12 +19,18 @@ class SearchResultsCest
         $I->seeBasicElementsOnSearchResultsPage();
 
     }
+
+    /**
+     * Check user can able to decrease quantity
+     * @group bx3
+     */
     public function verifyUserToSearchForProduct(AcceptanceTester $I, $scenario)
     {
         $I = new AcceptanceTester\SearchResultsSteps($scenario);
         $I->navigateToHomePage();
         $I->wantTo("ensure that user can able to search for product");
         $I->searchForProduct("red");
+        $I->seeBasicElementsOnSearchResultsPage();
     }
 
     public function searchWithKeywordNoItemsWithThisKeyword(AcceptanceTester $I, $scenario)

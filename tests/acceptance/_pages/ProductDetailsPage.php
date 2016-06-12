@@ -23,8 +23,8 @@ class ProductDetailsPage
     public static $productRatingAndID = ".product-rating-and-id";
     public static $selectColor = "#body > div:nth-child(1) > nav";
     public static $selectQuantity = "#input-field";
-    public static $selectQuantityIncrease = ".quantity-selector pull-left";
-    public static $selectQuantityDecrease = "#input-field";
+    public static $selectQuantityIncrease = "a.increase";
+    public static $selectQuantityDecrease = "a.decrease";
     public static $addToBagButton = "#login-button";
     public static $deliveryInformation = "#login-button";
     public static $favorites = ".fa fa-heart-o";
