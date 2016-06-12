@@ -19,7 +19,6 @@ class SearchResultsCest
         $I->seeBasicElementsOnSearchResultsPage();
 
     }
-
     /**
      * Check user can able to decrease quantity
      * @group bx3
