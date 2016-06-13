@@ -24,19 +24,19 @@ modules:
         - \Helper\Acceptance
         - Asserts
 
-# env:
+env:
 
-#     Firefox:
-#         modules:
-#             config:
-#                 WebDriver:
-#                     url: 'http://qatest.mamasandpapas.ae'
-#                     browser: 'firefox'
-#                     restart: true
-#     Chrome:
-#         modules:
-#             config:
-#                 WebDriver:
-#                     url: 'http://qatest.mamasandpapas.ae'
-#                     browser: 'chrome'
-#                     restart: true
+    Firefox:
+        modules:
+            config:
+                - PhpBrowser:
+                    url: 'http://qatest.mamasandpapas.ae'
+                    browser: 'firefox'
+                    restart: true
+    Chrome:
+        modules:
+            config:
+                - PhpBrowser:
+                    url: 'http://qatest.mamasandpapas.ae'
+                    browser: 'chrome'
+                    restart: true
