@@ -30,6 +30,7 @@ Created seperate Github repository
      -- https://github.com/acbharat/mamapapa
 
 Created seperate EC2 instance (t2.micro) on Amazon AWS 
+     -- 
 
 Installed Ubuntu trusty
 
@@ -43,7 +44,7 @@ Installed Docker
 If you want to run tests on parallel using docker containers, please follow the steps the following commands:
 
 URL: http://54.169.41.195/jenkins/job/mamapapa/
-    -- User credentials: user
+    -- User name: user
     -- Password: bitnami
 Go to the project "mamapapa"
 Click : Build with parameter
@@ -54,4 +55,6 @@ If you want to see configuration, click on "Configure" link
 
 Note: Thou we are using ec2 micro instance with 512 mb RAM, there might be the possiblity of high memory usuage which slows down build execution.
 
-
+For ec2 access:
+URL: https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:sort=instanceId
+     --Username: acbharat@hotmail.com and Password on email.
