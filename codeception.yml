@@ -12,6 +12,3 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
-
-reporters:
-    html: Codeception\PHPUnit\ResultPrinter\HTML
