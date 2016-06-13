@@ -15,11 +15,8 @@ class SearchResultsSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->seeElement(\SearchResultsPage::$searchField);
-        $I->fillField(\SearchResultsPage::$searchInputField, $value);
-        $I->canSeeInField(\SearchResultsPage::$searchInputField, $value);
-        $I->wait(5);
-        $I->click(\SearchResultsPage::$searchIcon);
-        $I->see(\SearchResultsPage::$searchResultsHeader);
+        $I->submitForm('form.quick-search', ['q' => $value]);
+        $I->waitForElementVisible(\SearchResultsPage::$searchField);
     }
 
     /**
@@ -39,7 +36,6 @@ class SearchResultsSteps extends \AcceptanceTester
         $I->seeElement(\SearchResultsPage::$searchIcon);
         $I->seeElement(\SearchResultsPage::$sortingField);
         $I->seeElement(\SearchResultsPage::$categoryFilters);
-        $I->seeElement(\SearchResultsPage::$refineCategory);
         $I->seeElement(\SearchResultsPage::$refineProduct);
         $I->seeElement(\SearchResultsPage::$refineProductByColor);
         $I->seeElement(\SearchResultsPage::$refineProductBySize);
@@ -54,30 +50,23 @@ class SearchResultsSteps extends \AcceptanceTester
     public function verifyNoOfListings()
     {
         $I = $this;
-        $I->wait(5);
+        $I->seeNumberOfElements('a.product-item', 12);
+        $I->click(\SearchResultsPage::$loadMore);
+        $I->waitForElementNotVisible('a.load-more');
+        $I->seeNumberOfElements('a.product-item', 20);
     }
 
     /**
      * Check is list count displayed after search
      *
      */
-    public function searchForProductWithKeyword()
+    public function searchForProductWithKeyword($value)
     {
         $I = $this;
-        $I->wait(5);
+        $I->seeElement(\SearchResultsPage::$searchField);
+        $I->submitForm('form.quick-search', ['q' => $value]);
+        $I->waitForElementVisible(\SearchResultsPage::$searchField);
     }
-
-    /**
-     * Click on the Load more button
-     * @param string $number
-     */
-    public function clickLoadMoreButton($number)
-    {
-        $I = $this;
-        $I->wait(5);
-        $I->click(\SearchResultsPage::$loadMore);
-    }
-
     /**
      * Click on the search Icon button
      *
@@ -85,7 +74,6 @@ class SearchResultsSteps extends \AcceptanceTester
     public function noItemsWithThisKeyword($maddaya)
     {
         $I = $this;
-        $I->wait(2);
         $I->seeElement(\SearchResultsPage::$searchInputField);
         $I->fillField(\SearchResultsPage::$searchInputField, $maddaya);
         $I->click(\SearchResultsPage::$searchIcon);

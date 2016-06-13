@@ -23,11 +23,12 @@ class ProductDetailsPage
     public static $productRatingAndID = ".product-rating-and-id";
     public static $selectColor = "#body > div:nth-child(1) > nav";
     public static $selectQuantity = "#input-field";
-    public static $selectQuantityIncrease = ".quantity-selector pull-left";
-    public static $selectQuantityDecrease = "#input-field";
+    public static $selectQuantityIncrease = "a.increase";
+    public static $selectQuantityDecrease = "a.decrease";
     public static $addToBagButton = "#login-button";
     public static $deliveryInformation = "#login-button";
-    public static $favorites = ".fa fa-heart-o";
+    public static $favorites = "/html/body/div[2]/div[2]/div[2]/div[4]/div[1]/button";
+
     public static $giftRegistery = "#login-button";
     public static $productInfo = "/html/body/div[2]/div[3]/div[1]";
     public static $productInfoDetailsTab = "/html/body/div[2]/div[3]/div[1]/div/div[1]/a[1]";
