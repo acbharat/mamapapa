@@ -24,37 +24,34 @@ Parallel Test Execution consists of 3 steps:
 
 * merging results
 
-Now that we have the tests running in BrowserStack from the command-line, it’s time to start running them simultaneously on various configurations. In order to run them on various configurations we need a few things:
-Quick Installation
+**In order to run them:**
 
-$ wget http://getcomposer.org/composer.phar
-$ php composer.phar create-project sylius/sylius
-$ cd sylius
-$ php app/console sylius:install
-$ php app/console server:run
-The install script will give you the option to run fixtures that make testing and development phases much easier.
+Created seperate Github repository
+     -- https://github.com/acbharat/mamapapa
 
-If you want to try out new Sylius UI, please run the following commands:
+Created seperate EC2 instance (t2.micro) on Amazon AWS 
 
-$ npm install
-$ gulp
-Behat scenarios
+Installed Ubuntu trusty
 
-By default Behat uses http://localhost:8080/ as your application base url. If your one is different, you need to create behat.yml files that will overwrite it with your custom url:
+Installed Jenkins server
 
-imports: ["behat.yml.dist"]
+Created Job in Jenkins to run tests parallel
+    -- The Job script will give you the option to run tests with prefered browser parallely that make tests run faster.
 
-default:
-    extensions:
-        Behat\MinkExtension:
-            base_url: http://my.custom.url
-Then run selenium-server-standalone:
+Installed Docker 
 
-$ bin/selenium-server-standalone
-Then setup your test database:
+If you want to run tests on parallel using docker containers, please follow the steps the following commands:
 
-$ php app/console doctrine:database:create --env=test
-$ php app/console doctrine:schema:create --env=test
-You can run Behat using the following commands:
+URL: http://54.169.41.195/jenkins/job/mamapapa/
+    -- User credentials: user
+    -- Password: bitnami
+Go to the project "mamapapa"
+Click : Build with parameter
+Select Environment "Firefox or Chrome" from dropdown.
+Click "Build" button
 
-$ bin/behat
+If you want to see configuration, click on "Configure" link
+
+Note: Thou we are using ec2 micro instance with 512 mb RAM, there might be the possiblity of high memory usuage which slows down build execution.
+
+
