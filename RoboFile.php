@@ -7,22 +7,54 @@
 
 class Robofile extends \Robo\Tasks
 {
-    use \Codeception\Task\MergeReports;
-    use \Codeception\Task\SplitTestsByGroups;
+//    use \Codeception\Task\MergeReports;
+//    use \Codeception\Task\SplitTestsByGroups;
 
-    public function parallelSplitTests()
+    public function parallelRunFirefox()
     {
+        $parallel = $this->taskParallelExec();
 
+        $cests = ["ApiCest","LoginFacebookCest","ProductDetailsCest","SearchResultsCest"];
+
+        foreach($cests as $cest)
+        {
+            $parallel->process(
+                $this->taskCodecept()
+                    ->suite("acceptance $cest") // run acceptance tests
+                    ->env("Firefox")
+                    ->xml("tests/_log/result_$cest.xml") // save XML results
+            );
+        }
+
+        return $parallel->run();
     }
 
-    public function parallelRun()
+    public function parallelRunChrome()
     {
+        $parallel = $this->taskParallelExec();
 
+        $cests = ["ApiCest","LoginFacebookCest","ProductDetailsCest","SearchResultsCest"];
+
+        foreach($cests as $cest)
+        {
+            $parallel->process(
+                $this->taskCodecept()
+                    ->suite("acceptance $cest") // run acceptance tests
+                    ->env("Chrome")
+                    ->xml("tests/_log/result_$cest.xml") // save XML results
+            );
+        }
+
+        return $parallel->run();
     }
 
     public function parallelMergeResults()
     {
-
+        $merge = $this->taskMergeXmlReports();
+        for ($i=1; $i<=5; $i++) {
+            $merge->from("/tests/_log/result_$i.xml");
+        }
+        $merge->into("/tests/_log/result.xml")
+            ->run();
     }
-
 }
