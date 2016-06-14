@@ -24,7 +24,7 @@ Parallel Test Execution consists of 3 steps:
 
 * merging results
 
-**In order to run them:**
+**Environment setup:**
 
 Created seperate Github repository
      -- https://github.com/acbharat/mamapapa
@@ -37,7 +37,22 @@ Installed Jenkins server
 
 Installed Docker 
 
-If you want to run tests on parallel using docker containers, please follow the steps the following commands:
+For ec2 access:
+URL: https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:sort=instanceId
+     --Username: acbharat@hotmail.com and Password on email.
+ 
+ **Execute acceptance tests:**    
+ 
+ Thou we are using ec2 micro instance with 512 mb RAM, there might be the possiblity of high memory usuage which slows down build execution or failure.
+ 
+     So I created two separate job in Jenkins:
+
+              1. Run tests in parallel (Job name: mamapapa)
+              2. Run tests in sequential (Job name: mamapapa_sequential)
+
+ If you want to run tests on parallel using docker containers, please follow the steps the following commands:
+
+**Run tests in parallel (Job name: mamapapa)**
 
 URL: http://54.169.41.195/jenkins/job/mamapapa/
     -- User name: user
@@ -46,11 +61,18 @@ Go to the project "mamapapa"
 Click : Build with parameter
 Select Environment "Firefox or Chrome" from dropdown.
 Click "Build" button
+Once complete, you can see HTML reports by clicking the button "Mamapapa reports"
+    -- http://54.169.41.195/jenkins/job/mamapapa/MamaPapa_Report/
+    
+**Run tests sequential (Job name: mamapapa)**
 
-If you want to see configuration, click on "Configure" link
+With above mentioned URL, 
+Go to the project "mamapapa_sequential"
+Click : Build with parameter
+Select Environment "Firefox or Chrome" from dropdown.
+Click "Build" button
+Once complete, you can see HTML reports by clicking the button "Mamapapa reports"
+    http://54.169.41.195/jenkins/job/mamapapa_sequential/MamaPapa_Report/
 
-Note: Thou we are using ec2 micro instance with 512 mb RAM, there might be the possiblity of high memory usuage which slows down build execution.
+If you want to see configuration, click on "Configure" link.
 
-For ec2 access:
-URL: https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:sort=instanceId
-     --Username: acbharat@hotmail.com and Password on email.
