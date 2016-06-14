@@ -4,7 +4,7 @@ Basic automation scripts for mamasandpapas project, based on Codeception  ((BDD-
 
 Ultimate goal of the project is to create a automation acceptance test script, which is user-friendly and these tests are represented as a set of user's actions.
 
-I used full-stack BDD methodology, with phpspec and codeception.
+I used full-stack BDD methodology, with codeception.
 
 **These are the goals:**
 
@@ -20,7 +20,7 @@ Parallel Test Execution consists of 3 steps:
 
 * splitting tests
 
-* running tests in parallel
+* running tests in parallel on isolated docker containers
 
 * merging results
 
@@ -30,14 +30,10 @@ Created seperate Github repository
      -- https://github.com/acbharat/mamapapa
 
 Created seperate EC2 instance (t2.micro) on Amazon AWS 
-     -- 
-
 Installed Ubuntu trusty
 
 Installed Jenkins server
-
-Created Job in Jenkins to run tests parallel
-    -- The Job script will give you the option to run tests with prefered browser parallely that make tests run faster.
+     -- Created Job in Jenkins to run tests parallel (The Job script will give you the option to run tests with prefered browser parallely that make tests run faster.)
 
 Installed Docker 
 
