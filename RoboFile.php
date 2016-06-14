@@ -42,6 +42,7 @@ class Robofile extends \Robo\Tasks
                     ->suite("acceptance $cest") // run acceptance tests
                     ->env("Chrome")
                     ->xml("tests/_log/result_$cest.xml") // save XML results
+                    ->html("tests/_output/$cest.html")
             );
         }
 
